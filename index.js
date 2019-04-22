@@ -90,32 +90,33 @@ let previousValueNum1 = 0;
 let currentValueNum1 = 0;
 let previousValueNum2 = 0;
 let currentValueNum2 = 0;
+let previousSum = 0;
 let sum = 0;
 document.getElementById('num1').addEventListener('change', (e) => {
-    currentValueNum1 = +e.srcElement.value;
-    console.log(`current value = ${currentValueNum1}`);
-    console.log(`previous value = ${previousValueNum1}`);
-    sum -= previousValueNum1;
-    previousValueNum1 = currentValueNum1;
-    sum += currentValueNum1;
-    if(sum) {
+    if(+e.srcElement.value) {
+        currentValueNum1 = +e.srcElement.value;
+        sum -= previousValueNum1;
+        previousValueNum1 = currentValueNum1;
+        sum += currentValueNum1;
         sumNode.innerText = sum;
     } else {
         sumNode.innerText = 'Cannot add';
+        e.srcElement.value = '';
     }
+    
 });
 document.getElementById('num2').addEventListener('change', (e) => {
-    currentValueNum2 = +e.srcElement.value;
-    console.log(`current value = ${currentValueNum2}`);
-    console.log(`previous value = ${previousValueNum2}`);
-    sum -= previousValueNum2;
-    previousValueNum2 = currentValueNum2;
-    sum += currentValueNum2;
-    if(sum) {
+    if(+e.srcElement.value) {
+        currentValueNum2 = +e.srcElement.value;
+        sum -= previousValueNum2;
+        previousValueNum2 = currentValueNum2;
+        sum += currentValueNum2;
         sumNode.innerText = sum;
     } else {
         sumNode.innerText = 'Cannot add';
+        e.srcElement.value = '';
     }
+    
 });
 
 // Define onchange event handler.
